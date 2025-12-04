@@ -29,7 +29,7 @@ public class Day3Part2 implements Day {
     }
 
     private void getPuzzleInput() {
-        var banksStr = FileUtilities.ReadPuzzleInput("day3.txt");
+        var banksStr = FileUtilities.readPuzzleInput("day3.txt");
         var intPattern = Pattern.compile("\\d");
         for (var bankStr : banksStr) {
             var levels = new ArrayList<Integer>();

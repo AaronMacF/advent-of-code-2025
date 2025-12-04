@@ -14,7 +14,7 @@ public class Day1Part1 implements Day {
     private int password = 0;
 
     public void run() {
-        List<String> puzzleInput = FileUtilities.ReadPuzzleInput("day1.txt");
+        List<String> puzzleInput = FileUtilities.readPuzzleInput("day1.txt");
         for (String command : puzzleInput) {
             var matcher = commandRegexPattern.matcher(command);
             if (!matcher.matches()) {

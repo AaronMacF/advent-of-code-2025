@@ -11,7 +11,7 @@ public final class FileUtilities {
     private FileUtilities() {
     }
 
-    public static List<String> ReadPuzzleInput(String filename) {
+    public static List<String> readPuzzleInput(String filename) {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(Objects.requireNonNull(FileUtilities.class.getResourceAsStream("/" + filename))))) {
             return reader.lines().collect(Collectors.toList());

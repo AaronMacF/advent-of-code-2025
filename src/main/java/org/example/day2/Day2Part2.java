@@ -23,7 +23,7 @@ public class Day2Part2 implements Day {
     }
 
     private void getPuzzleInput() {
-        List<String> inputArr = FileUtilities.ReadPuzzleInput("day2.txt");
+        List<String> inputArr = FileUtilities.readPuzzleInput("day2.txt");
         if (inputArr.size() > 1) {
             System.out.println("Expected a single-line input");
             return;
