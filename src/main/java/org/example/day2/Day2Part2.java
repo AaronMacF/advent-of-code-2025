@@ -1,18 +1,20 @@
 package org.example.day2;
 
+import org.example.Day;
 import org.example.utils.FileUtilities;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Day2Part2 {
+public class Day2Part2 implements Day {
     private String puzzleInput = "";
-    private ArrayList<ArrayList<Long>> idRanges = new ArrayList<ArrayList<Long>>();
+    private final List<List<Long>> idRanges = new ArrayList<>();
     private long answer;
 
     public void run() {
         getPuzzleInput();
         populateIds();
-        for (ArrayList<Long> idRange : idRanges) {
+        for (var idRange : idRanges) {
             addInvalidIdsToAnswer(idRange);
         }
         System.out.println("Answer is: " + answer);
@@ -20,7 +22,7 @@ public class Day2Part2 {
     }
 
     private void getPuzzleInput() {
-        ArrayList<String> inputArr = FileUtilities.ReadPuzzleInput("day2.txt");
+        List<String> inputArr = FileUtilities.ReadPuzzleInput("day2.txt");
         if (inputArr.size() > 1) {
             System.out.println("Expected a single-line input");
             return;
@@ -42,7 +44,7 @@ public class Day2Part2 {
         }
     }
 
-    private void addInvalidIdsToAnswer(ArrayList<Long> idsToCheck) {
+    private void addInvalidIdsToAnswer(List<Long> idsToCheck) {
         for (long id : idsToCheck) {
             String idStr = Long.toString(id);
             int idLen = idStr.length();

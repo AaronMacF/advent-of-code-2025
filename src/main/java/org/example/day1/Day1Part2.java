@@ -1,19 +1,19 @@
 package org.example.day1;
 
+import org.example.Day;
 import org.example.utils.FileUtilities;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
-public class Day1Part2 {
-    private ArrayList<String> puzzleInput = new ArrayList<>();
+public class Day1Part2 implements Day {
     private final Pattern commandRegexPattern = Pattern.compile("([LR])(\\d*)");
 
     private int currentPos = 50;
     private int password = 0;
 
     public void run() {
-        puzzleInput = FileUtilities.ReadPuzzleInput("day1.txt");
+        List<String> puzzleInput = FileUtilities.ReadPuzzleInput("day1.txt");
         for (String command : puzzleInput) {
             var matcher = commandRegexPattern.matcher(command);
             if (!matcher.matches()) {

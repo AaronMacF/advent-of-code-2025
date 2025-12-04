@@ -1,12 +1,14 @@
 package org.example.day2;
 
+import org.example.Day;
 import org.example.utils.FileUtilities;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Day2Part1 {
+public class Day2Part1 implements Day {
     private String puzzleInput = "";
-    private ArrayList<ArrayList<Long>> idRanges = new ArrayList<ArrayList<Long>>();
+    private final ArrayList<ArrayList<Long>> idRanges = new ArrayList<>();
     private long answer;
 
     public void run() {
@@ -20,7 +22,7 @@ public class Day2Part1 {
     }
 
     private void getPuzzleInput() {
-        ArrayList<String> inputArr = FileUtilities.ReadPuzzleInput("day2.txt");
+        List<String> inputArr = FileUtilities.ReadPuzzleInput("day2.txt");
         if (inputArr.size() > 1) {
             System.out.println("Expected a single-line input");
             return;
