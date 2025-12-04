@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class Day3Part2 implements Day {
     private final List<List<Integer>> banks = new ArrayList<>();
 

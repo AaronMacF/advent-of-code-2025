@@ -6,6 +6,7 @@ import org.example.utils.FileUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Day2Part2 implements Day {
     private String puzzleInput = "";
     private final List<List<Long>> idRanges = new ArrayList<>();

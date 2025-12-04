@@ -6,6 +6,7 @@ import org.example.utils.FileUtilities;
 import java.util.List;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class Day1Part2 implements Day {
     private final Pattern commandRegexPattern = Pattern.compile("([LR])(\\d*)");
 
