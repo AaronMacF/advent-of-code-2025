@@ -1,0 +1,3 @@
+package org.example.shared;
+
+public record Pair<A,B>(A first, B second) {}

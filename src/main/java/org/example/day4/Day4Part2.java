@@ -28,7 +28,7 @@ public class Day4Part2 implements Day {
     public void run() {
         this.populateGrid();
         long totalRemovals = 0;
-        long removalsInPass = 0;
+        long removalsInPass;
         do {
             removalsInPass = grid.stream().mapToLong(cells -> cells.stream().filter(this::cellRemoved).count()).sum();
             totalRemovals += removalsInPass;
