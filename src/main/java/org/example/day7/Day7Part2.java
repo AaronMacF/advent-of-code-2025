@@ -16,30 +16,30 @@ public class Day7Part2 implements Day {
         int charsPerLine = inputChars.getFirst().size();
 
         int indexOfStart = inputChars.getFirst().indexOf('S');
-        Map<Integer, Long> currentSplits = new HashMap<>();
-        currentSplits.put(indexOfStart, (long) 1);
+        long[] currentSplits = new long[charsPerLine];
+        currentSplits[indexOfStart] = 1;
 
         for (int i = 1; i < lines; i++) {
             List<Character> currentLine = inputChars.get(i);
             currentSplits = getNextState(currentSplits, currentLine, charsPerLine);
         }
-        long timelines = currentSplits.values().stream().mapToLong(Long::longValue).sum();
+        long timelines = Arrays.stream(currentSplits).sum();
         System.out.println("Number of timelines: " + timelines);
     }
 
-    private Map<Integer, Long> getNextState(Map<Integer, Long> currentPaths, List<Character> currentLine, int charsPerLine) {
-        Map<Integer, Long> nextPaths = new HashMap<>(currentPaths);
+    private long[] getNextState(long[] currentPaths, List<Character> currentLine, int charsPerLine) {
+        long[] nextPaths = currentPaths.clone();
         for (int j = 0; j < charsPerLine; j++) {
             if (!currentLine.get(j).equals('^')) {
                 continue;
             }
-            long splitsAtIndex = currentPaths.get(j);
-            nextPaths.put(j, nextPaths.get(j) - splitsAtIndex);
+            long splitsAtIndex = currentPaths[j];
+            nextPaths[j] -= splitsAtIndex;
             if (j != 0) {
-                nextPaths.put(j - 1, nextPaths.getOrDefault(j - 1, (long) 0) + splitsAtIndex);
+                nextPaths[j - 1] += splitsAtIndex;
             }
             if (j != charsPerLine - 1) {
-                nextPaths.put(j + 1, nextPaths.getOrDefault(j + 1, (long) 0) + splitsAtIndex);
+                nextPaths[j + 1] += splitsAtIndex;
             }
         }
         return nextPaths;
